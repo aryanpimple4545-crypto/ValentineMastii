@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<style>
+body {
+  margin: 0;
+  background: pink;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+#box {
+  margin-top: 40vh;
+}
+
+button {
+  font-size: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#yes {
+  background: red;
+  color: white;
+}
+
+#no {
+  background: gray;
+  color: white;
+  position: absolute;
+}
+
+#screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: hotpink;
+  color: white;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 30px;
+  animation: fall 3s linear;
+}
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="box">
+  <h1>Will you be my Valentine? 💘</h1>
+  <p>— 😭🙏🏼 for <b>baunii</b></p>
+  <button id="yes" onclick="yes()">YES 💕</button>
+  <button id="no" onmouseover="run()">NO 💔</button>
+</div>
+
+<div id="screen">
+  <h1>YES 💖💖</h1>
+  <p>Sapne Suhane 😭🫵🤣🙏🏼🫶💖💖</p>
+</div>
+
+<audio id="music">
+  <source src="Buck_Owens_-_Made_In_Japan_(mp3.pm).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function run() {
+  const b = document.getElementById("no");
+  b.style.left = Math.random()*80 + "vw";
+  b.style.top = Math.random()*80 + "vh";
+}
+
+function yes() {
+  document.getElementById("box").style.display = "none";
+  document.getElementById("screen").style.display = "flex";
+  document.getElementById("music").play();
+  setInterval(() => {
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💖";
+    h.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),3000);
+  },200);
+}
+</script>
+
+</body>
+</html>
